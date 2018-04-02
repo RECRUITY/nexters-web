@@ -14,13 +14,14 @@ html
     link(href="magnific-popup/magnific-popup.css", rel="stylesheet")
     link(href="css/creative.css", rel="stylesheet")
 
+  body(id="page-top")
+    include gnb
+    include header
+    include about
+
     script(src="jquery/jquery.min.js")
     script(src="bootstrap/js/bootstrap.bundle.min.js")
     script(src="jquery-easing/jquery.easing.min.js")
     script(src="scrollreveal/scrollreveal.min.js")
     script(src="magnific-popup/jquery.magnific-popup.min.js")
-    script(src="js/creative.min.js")
-
-  body(id="page-top")
-    include gnb
-    include header
+    script(src="js/creative.js")
