@@ -1,11 +1,33 @@
 /**
  * Module dependencies.
  */
+const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const compression = require('compression');
 const config = require('config');
 const express = require('express');
 const path = require('path');
+
+/**
+ * Set environment
+ */
+process.env.TZ = 'Asia/Seoul';
+
+/**
+ * Connect to mongodb
+ */
+mongoose.connect(
+  config.get('mongodb-url'),
+  { promiseLibrary: global.Promise },
+  (err) => {
+    if (err) {
+      console.log('Occurred the error when connecting mongodb: ', err);
+    } else {
+      console.log('The mongodb connection was successful.');
+    }
+  },
+);
+
 
 /**
  * Create Express server.
