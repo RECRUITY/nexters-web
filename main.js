@@ -13,6 +13,7 @@ const path = require('path');
  * Controllers dependencies.
  */
 const test = require('./controllers/test');
+const products = require('./controllers/products');
 
 /**
  * Set environment
@@ -57,6 +58,7 @@ app.use('/api', (() => {
   const router = express.Router();
 
   router.use('/test', test);
+  router.use('/products', products);
 
   return router;
 })());
