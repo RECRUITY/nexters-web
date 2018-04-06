@@ -14,6 +14,7 @@ const path = require('path');
  */
 const test = require('./controllers/test');
 const products = require('./controllers/products');
+const admin = require('./controllers/admin');
 
 /**
  * Set environment
@@ -54,6 +55,9 @@ app.use(cors({
   credentials: true,
 }));
 
+/**
+ * API 관련 라우팅 초기화.
+ */
 app.use('/api', (() => {
   const router = express.Router();
 
@@ -63,8 +67,16 @@ app.use('/api', (() => {
   return router;
 })());
 
+/**
+ * Admin 관련 라우팅 초기화.
+ */
+app.use('/admin', admin);
+
+/**
+ * 일반 유저들이 볼 수 있는 라우팅 초기화.
+ */
 app.get('/', (req, res) => {
-  res.render('index');
+  res.render('web/index');
 });
 
 app.listen(config.get('port'), () => {
