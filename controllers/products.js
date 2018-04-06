@@ -61,4 +61,19 @@ router.put('/:id', (req, res, next) => {
   );
 });
 
+/**
+ * @api {delete} /api/products/:id DELETE
+ * @apiGroup Product
+ * @apiName Delete Product
+ * @apiDescription 해당 id의 프로덕트를 삭제한다.
+ */
+router.delete('/:id', (req, res, next) => {
+  Product.findByIdAndRemove(req.params.id, (err) => {
+    if (err) {
+      return next(err);
+    }
+    return res.status(HttpStatus.OK).send();
+  });
+});
+
 module.exports = router;
