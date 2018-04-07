@@ -62,5 +62,3 @@ typings/
 # config files
 config/
 
-# admin build files
-views/admin/dist

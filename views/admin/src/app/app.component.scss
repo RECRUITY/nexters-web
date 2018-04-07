@@ -1,0 +1,47 @@
+.aside {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 240px;
+  background-color: #343a40;
+  color: white;
+
+  .title {
+    margin: 10px 0 10px 0;
+    padding: 18px;
+    font-size: 25px;
+  }
+
+  .item {
+    display: block;
+    text-decoration: none;
+    color: #868e96;
+    padding: 1em;
+    font-size: 16px;
+    font-size: 20px;
+
+    &:hover {
+      color: #adb5bd;
+      cursor: pointer;
+    }
+  }
+
+  .copyright {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 240px;
+    padding: 10px;
+    color: #868e96;
+    font-size: 13px;
+  }
+}
+
+.container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 240px;
+}
