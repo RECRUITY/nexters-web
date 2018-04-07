@@ -79,6 +79,10 @@ app.get('/', (req, res) => {
   res.render('web/index');
 });
 
+app.get('*', (req, res) => {
+  res.redirect('/');
+});
+
 app.listen(config.get('port'), () => {
   console.log('App is running at %d port', config.get('port'));
 });

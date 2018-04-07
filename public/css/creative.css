@@ -336,6 +336,8 @@ header.masthead p {
 }
 
 .admin-aside .admin-aside-item {
+  display: block;
+  text-decoration: none;
   color: #868e96;
   padding: 1em;
 }
