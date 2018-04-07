@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  h3 Products 관리 페이지
+
+  table(class="table")
+    thead
+      tr
+        th(scope="col") Title
+        th(scope="col") Description
+        th
+    tbody
+      each product in products
+        tr
+          td= product.title
+          td= product.description

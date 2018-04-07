@@ -58,4 +58,9 @@ typings/
 .env
 
 .DS_Store
+
+# config files
 config/
+
+# admin build files
+views/admin/dist

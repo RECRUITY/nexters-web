@@ -14,7 +14,6 @@ const path = require('path');
  */
 const test = require('./controllers/test');
 const products = require('./controllers/products');
-const admin = require('./controllers/admin');
 
 /**
  * Set environment
@@ -49,6 +48,7 @@ app.use(compression());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.resolve(__dirname, 'public')));
+app.use('/admin', express.static(path.resolve(__dirname, 'views', 'admin', 'dist')));
 app.set('view engine', 'pug');
 app.use(cors({
   origin: true,
@@ -70,7 +70,9 @@ app.use('/api', (() => {
 /**
  * Admin 관련 라우팅 초기화.
  */
-app.use('/admin', admin);
+app.get('/admin', (req, res) => {
+  res.sendFile(path.resolve(__dirname, 'admin', 'index.html'));
+});
 
 /**
  * 일반 유저들이 볼 수 있는 라우팅 초기화.
@@ -79,6 +81,9 @@ app.get('/', (req, res) => {
   res.render('web/index');
 });
 
+/**
+ * 매칭되는 라우팅이 없으면 root로 리다이렉트
+ */
 app.get('*', (req, res) => {
   res.redirect('/');
 });

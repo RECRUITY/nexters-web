@@ -355,3 +355,12 @@ header.masthead p {
   left: 240px;
   padding: 18px;
 }
+
+.admin-container table {
+  margin-top: 30px;
+}
+
+.admin-container table thead {
+  background-color: #343a40;
+  color: white;
+}
