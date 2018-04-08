@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-nexters',
   templateUrl: './nexters.component.html',
-  styleUrls: ['./nexters.component.scss']
+  styleUrls: ['./nexters.component.scss'],
 })
 export class NextersComponent implements OnInit {
 
