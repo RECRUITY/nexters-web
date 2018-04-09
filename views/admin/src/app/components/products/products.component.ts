@@ -5,6 +5,7 @@ import { Observable } from 'rxjs/Observable';
 import { IRootState } from '../../redux/redux.module';
 
 import { ProductActions } from '../../redux/actions/product.actions';
+import { Product } from '../../models/product.model';
 
 @Component({
   selector: 'app-products',
@@ -12,7 +13,7 @@ import { ProductActions } from '../../redux/actions/product.actions';
   styleUrls: ['./products.component.scss'],
 })
 export class ProductsComponent implements OnInit {
-  @select(['productReducer', 'count']) readonly count$: Observable<number>;
+  @select(['productReducer', 'products']) readonly products$: Observable<Product[]>;
 
   constructor(
     private ngRedux: NgRedux<IRootState>,

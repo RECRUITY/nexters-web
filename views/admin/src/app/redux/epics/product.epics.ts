@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { Action } from 'redux';
 
-import ActionTypes from '../../../constants/ActionTypes';
+import ActionTypes from '../../constants/ActionTypes';
 import { ProductActions } from '../actions/product.actions';
 
 @Injectable()

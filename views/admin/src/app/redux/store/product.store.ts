@@ -1,21 +1,30 @@
 import { Action } from 'redux';
 
-import ActionTypes from '../../../constants/ActionTypes';
+import ActionTypes from '../../constants/ActionTypes';
+import { Product } from '../../models/product.model';
+
+interface TempAction extends Action {
+  type: string;
+  payload: {
+    [key: string]: any,
+  };
+}
+
 
 export interface IProductState {
-  count: number;
+  products: Product[];
 }
 
 export const productInitState: IProductState = {
-  count: 0,
+  products: [],
 };
 
-export const productReducer = (state: IProductState = productInitState, action: Action): IProductState => {
+export const productReducer = (state: IProductState = productInitState, action: TempAction): IProductState => {
   switch (action.type) {
-    case ActionTypes.INCREMENT:
+    case ActionTypes.REQUETS_GET_PRODUCT_SUCCESS:
       return {
         ...state,
-        count: state.count + 1,
+        products: action.payload.products.map(product => new Product(product)),
       };
 
     default:

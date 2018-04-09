@@ -1,4 +1,5 @@
-<p>
-  {{ count$ | async }}
-  <button (click)="increment()">increment</button>
-</p>
+<div *ngFor="let product of products$ | async as product">
+  <span>{{ product.title }}</span>
+  <span>{{ product.description }}</span>
+  <hr />
+</div>
