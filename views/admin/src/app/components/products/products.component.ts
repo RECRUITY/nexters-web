@@ -20,6 +20,7 @@ export class ProductsComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.ngRedux.dispatch(this.productActions.getProducts());
   }
 
   increment() {
