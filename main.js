@@ -39,7 +39,10 @@ mongoose.connect(
 /**
  * Create Express server.
  */
-const app = express();
+const app = express({
+  origin: true,
+  credentials: true,
+});
 
 /**
  * Express configuration.
@@ -50,10 +53,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.resolve(__dirname, 'public')));
 app.use('/admin', express.static(path.resolve(__dirname, 'views', 'admin', 'dist')));
 app.set('view engine', 'pug');
-app.use(cors({
-  origin: true,
-  credentials: true,
-}));
+app.use(cors());
 
 /**
  * API 관련 라우팅 초기화.
