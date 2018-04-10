@@ -20,15 +20,21 @@ export class ProductsComponent implements OnInit {
   constructor(
     private ngRedux: NgRedux<IRootState>,
     private productActions: ProductActions,
-  ) { }
+  ) {
+    this.handleCancelDelete = this.handleCancelDelete.bind(this);
+  }
 
   ngOnInit() {
     this.ngRedux.dispatch(this.productActions.getProducts());
   }
 
   handleClickDelete(product) {
-    console.log('hello');
     this.showDeleteModal = true;
     this.selected = product;
+  }
+
+  handleCancelDelete() {
+    this.showDeleteModal = false;
+    this.selected = null;
   }
 }

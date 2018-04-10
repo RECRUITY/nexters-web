@@ -10,6 +10,7 @@ import { Product } from '../../models/product.model';
 export class DeleteProductComponent implements OnInit {
 
   @Input() product: Product;
+  @Input() onCancel: () => void;
 
   constructor() { }
 

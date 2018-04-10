@@ -37,5 +37,6 @@
 <app-delete-product
   *ngIf="showDeleteModal"
   [product]="selected"
+  [onCancel]="handleCancelDelete"
 >
 </app-delete-product>
