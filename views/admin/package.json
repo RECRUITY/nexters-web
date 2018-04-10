@@ -11,6 +11,10 @@
     "e2e": "ng e2e"
   },
   "private": true,
+  "browserslist": [
+    "> 1%",
+    "last 2 versions"
+  ],
   "dependencies": {
     "@angular-redux/store": "^7.1.1",
     "@angular/animations": "^5.2.0",

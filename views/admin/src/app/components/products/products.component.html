@@ -1,5 +1,27 @@
-<div *ngFor="let product of products$ | async as product">
-  <span>{{ product.title }}</span>
-  <span>{{ product.description }}</span>
-  <hr />
+<div class="container">
+  <h2>Products Management</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>No.</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of products$ | async; let idx = index">
+        <td>{{ idx + 1 }}</td>
+        <td class="title">{{ product.title }}</td>
+        <td class="description">{{ product.description }}</td>
+        <td>
+          <app-button>Edit</app-button>
+        </td>
+        <td>
+          <app-button [btnType]="'danger'">Delete</app-button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>
