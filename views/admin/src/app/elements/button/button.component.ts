@@ -17,6 +17,8 @@ export class ButtonComponent {
       return 'primary danger';
     } else if (this.btnType === 'success') {
       return 'primary success';
+    } else if (this.btnType === 'light') {
+      return 'primary light';
     }
     return 'primary';
   }

@@ -10,6 +10,7 @@ import { ButtonComponent } from './elements/button/button.component';
 
 import { AppRoutingModule } from './app-routing.modules';
 import { ReduxModule } from './redux/redux.module';
+import { DeleteProductComponent } from './components/delete-product/delete-product.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { ReduxModule } from './redux/redux.module';
     NextersComponent,
     RecruitComponent,
     ButtonComponent,
+    DeleteProductComponent,
   ],
   imports: [
     BrowserModule,

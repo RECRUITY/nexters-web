@@ -14,6 +14,8 @@ import { Product } from '../../models/product.model';
 })
 export class ProductsComponent implements OnInit {
   @select(['productReducer', 'products']) readonly products$: Observable<Product[]>;
+  selected: Product;
+  showDeleteModal = false;
 
   constructor(
     private ngRedux: NgRedux<IRootState>,
@@ -24,7 +26,9 @@ export class ProductsComponent implements OnInit {
     this.ngRedux.dispatch(this.productActions.getProducts());
   }
 
-  increment() {
-    this.ngRedux.dispatch(this.productActions.increment());
+  handleClickDelete(product) {
+    console.log('hello');
+    this.showDeleteModal = true;
+    this.selected = product;
   }
 }

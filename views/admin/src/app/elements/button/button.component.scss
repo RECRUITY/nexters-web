@@ -36,4 +36,16 @@
       border-color: #1c7430;
     }
   }
+
+  &.light {
+    color: #212529;
+    background-color: #f8f9fa;
+    border-color: #f8f9fa;
+
+    &:hover {
+      color: #212529;
+      background-color: #dae0e5;
+      border-color: #d3d9df;
+    }
+  }
 }

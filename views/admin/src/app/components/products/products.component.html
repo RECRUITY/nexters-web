@@ -19,7 +19,12 @@
           <app-button>Edit</app-button>
         </td>
         <td>
-          <app-button [btnType]="'danger'">Delete</app-button>
+          <app-button
+            [btnType]="'danger'"
+            (click)="handleClickDelete(product)"
+          >
+            Delete
+          </app-button>
         </td>
       </tr>
     </tbody>
@@ -28,3 +33,9 @@
       <app-button [btnType]="'success'">Create</app-button>
   </div>
 </div>
+
+<app-delete-product
+  *ngIf="showDeleteModal"
+  [product]="selected"
+>
+</app-delete-product>
