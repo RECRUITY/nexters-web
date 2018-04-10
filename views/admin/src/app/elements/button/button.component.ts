@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 
-type ButtonType = 'primary' | 'danger';
+type ButtonType = 'primary' | 'danger' | 'success';
 
 @Component({
   selector: 'app-button',
@@ -15,6 +15,8 @@ export class ButtonComponent {
       return 'primary';
     } else if (this.btnType === 'danger') {
       return 'primary danger';
+    } else if (this.btnType === 'success') {
+      return 'primary success';
     }
     return 'primary';
   }

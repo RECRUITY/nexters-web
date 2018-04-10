@@ -20,13 +20,13 @@
 
     tbody {
       tr {
-        &::not(&:last-child) {
+        &:not(:last-child) {
           border-bottom: 1px solid #dee2e6;
         }
 
         td {
           min-height: 45px;
-          padding: 15px 20px;
+          padding: 10px 20px;
 
           &.title {
             min-width: 150px;
@@ -40,5 +40,9 @@
         }
       }
     }
+  }
+
+  .footer {
+    margin-top: 15px;
   }
 }
