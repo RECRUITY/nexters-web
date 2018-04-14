@@ -27,4 +27,20 @@ export class ProductEpics {
           }));
       })
   )
+
+  deleteProduct = (action$: any) => (
+    action$.ofType(ActionTypes.REQUEST_DELETE_PRODUCT)
+      .mergeMap((action) => {
+        const id = action.payload.id;
+        return this.httpClient.delete(`http://localhost:8080/api/products/${id}`)
+          .map(payload => ({
+            type: ActionTypes.REQUEST_DELETE_PRODUCT_SUCCESS,
+            payload: { id },
+          }))
+          .catch(payload => Observable.of({
+            type: ActionTypes.REQUEST_DELETE_PRODUCT_ERROR,
+            payload,
+          }));
+      })
+  )
 }

@@ -37,4 +37,9 @@ export class ProductsComponent implements OnInit {
     this.showDeleteModal = false;
     this.selected = null;
   }
+
+  handleConfirmDelete(event: { product: Product }) {
+    const { product } = event;
+    this.ngRedux.dispatch(this.productActions.deleteProduct({ id: product.id }));
+  }
 }

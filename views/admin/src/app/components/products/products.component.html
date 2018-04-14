@@ -38,5 +38,6 @@
   *ngIf="showDeleteModal"
   [product]="selected"
   [onCancel]="handleCancelDelete"
+  (onConfirm)="handleConfirmDelete($event)"
 >
 </app-delete-product>

@@ -1,31 +1,31 @@
-import { Action } from 'redux';
+import { AnyAction } from 'redux';
+import * as Immutable from 'immutable';
 
 import ActionTypes from '../../constants/ActionTypes';
 import { Product } from '../../models/product.model';
 
-interface TempAction extends Action {
-  type: string;
-  payload: {
-    [key: string]: any,
-  };
-}
-
-
 export interface IProductState {
-  products: Product[];
+  products: Immutable.List<Product>;
 }
 
 export const productInitState: IProductState = {
-  products: [],
+  products: Immutable.List<Product>(),
 };
 
-export const productReducer = (state: IProductState = productInitState, action: TempAction): IProductState => {
+export const productReducer = (state: IProductState = productInitState, action: AnyAction): IProductState => {
   switch (action.type) {
     case ActionTypes.REQUETS_GET_PRODUCT_SUCCESS:
       return {
         ...state,
-        products: action.payload.products.map(product => new Product(product)),
+        products: Immutable.List(action.payload.products.map(product => new Product(product))),
       };
+
+    case ActionTypes.REQUEST_DELETE_PRODUCT_SUCCESS:
+      const idx = state.products.findIndex(product => product.id === action.payload.id);
+      return {
+        ...state,
+        products: idx !== -1 ? state.products.delete(idx) : state.products,
+      }
 
     default:
       return state;

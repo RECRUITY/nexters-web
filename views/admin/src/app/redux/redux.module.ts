@@ -7,7 +7,7 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { NgReduxModule, NgRedux } from '@angular-redux/store';
 import { combineReducers } from 'redux';
-import { createEpicMiddleware } from 'redux-observable';
+import { createEpicMiddleware, combineEpics } from 'redux-observable';
 
 import { ProductActions } from './actions/product.actions';
 
@@ -44,7 +44,10 @@ export class ReduxModule {
   ) {
     const middleware: any = [
       createEpicMiddleware(
-        this.productEpics.getProducts,
+        combineEpics(
+          this.productEpics.getProducts,
+          this.productEpics.deleteProduct,
+        )
       ),
     ];
 

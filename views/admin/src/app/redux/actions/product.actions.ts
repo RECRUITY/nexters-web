@@ -1,13 +1,14 @@
-import { Action } from 'redux';
+import { AnyAction } from 'redux';
 
 import ActionsTypes from '../../constants/ActionTypes';
 
 export class ProductActions {
-  getProducts = (): Action => ({
+  getProducts = (): AnyAction => ({
     type: ActionsTypes.REQUEST_GET_PRODUCT,
   })
 
-  increment = (): Action => ({
-    type: ActionsTypes.INCREMENT,
+  deleteProduct = (payload: { id: string }): AnyAction => ({
+    type: ActionsTypes.REQUEST_DELETE_PRODUCT,
+    payload,
   })
 }
