@@ -28,6 +28,21 @@ export class ProductEpics {
       })
   )
 
+  createProduct = (action$: any) => (
+    action$.ofType(ActionTypes.REQUEST_CREATE_PRODUCT)
+      .mergeMap((action) => {
+        return this.httpClient.post('http://localhost:8080/api/products', action.payload)
+          .map(payload => ({
+            type: ActionTypes.REQUEST_CREATE_PRODUCT_SUCCESS,
+            payload,
+          }))
+          .catch(payload => Observable.of({
+            type: ActionTypes.REQUEST_CREATE_PRODUCT_ERROR,
+            payload,
+          }));
+      })
+  )
+
   deleteProduct = (action$: any) => (
     action$.ofType(ActionTypes.REQUEST_DELETE_PRODUCT)
       .mergeMap((action) => {

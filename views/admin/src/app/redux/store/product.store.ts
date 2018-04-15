@@ -20,6 +20,12 @@ export const productReducer = (state: IProductState = productInitState, action: 
         products: Immutable.List(action.payload.products.map(product => new Product(product))),
       };
 
+    case ActionTypes.REQUEST_CREATE_PRODUCT_SUCCESS:
+      return {
+        ...state,
+        products: state.products.push(new Product(action.payload.product)),
+      }
+
     case ActionTypes.REQUEST_DELETE_PRODUCT_SUCCESS:
       const idx = state.products.findIndex(product => product.id === action.payload.id);
       return {

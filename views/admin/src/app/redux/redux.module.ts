@@ -46,6 +46,7 @@ export class ReduxModule {
       createEpicMiddleware(
         combineEpics(
           this.productEpics.getProducts,
+          this.productEpics.createProduct,
           this.productEpics.deleteProduct,
         )
       ),

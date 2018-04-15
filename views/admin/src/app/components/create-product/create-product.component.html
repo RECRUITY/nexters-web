@@ -1,0 +1,31 @@
+<div class="wrapper">
+  <h2>Create New Product</h2>
+  <div class="row">
+    <div class="label">
+      Name
+    </div>
+    <app-input class="input" [(ngModel)]="title"></app-input>
+  </div>
+  <div class="row description">
+    <div class="label">
+      Description
+    </div>
+    <app-textarea class="textarea" [(ngModel)]="description"></app-textarea>
+  </div>
+  <div class="row button-group">
+      <app-button
+        class="button"
+        btnType="success"
+        (click)="handleClickCreate()"
+      >
+        Create
+      </app-button>
+      <app-button
+        class="button"
+        btnType="light"
+        routerLink="/products"
+      >
+        Cancel
+      </app-button>
+  </div>
+</div>

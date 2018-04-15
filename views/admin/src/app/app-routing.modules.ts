@@ -4,12 +4,14 @@ import { RouterModule, Routes } from '@angular/router';
 import { NextersComponent } from './components/nexters/nexters.component';
 import { RecruitComponent } from './components/recruit/recruit.component';
 import { ProductsComponent } from './components/products/products.component';
+import { CreateProductComponent } from './components/create-product/create-product.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/nexters', pathMatch: 'full' },
   { path: 'nexters', component: NextersComponent },
   { path: 'recruit', component: RecruitComponent },
-  { path: 'products', component: ProductsComponent },
+  { path: 'products', component: ProductsComponent},
+  { path: 'products/new', component: CreateProductComponent },
 ];
 
 @NgModule({
