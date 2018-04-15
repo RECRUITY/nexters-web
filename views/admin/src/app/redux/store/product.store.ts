@@ -26,12 +26,21 @@ export const productReducer = (state: IProductState = productInitState, action: 
         products: state.products.push(new Product(action.payload.product)),
       }
 
-    case ActionTypes.REQUEST_DELETE_PRODUCT_SUCCESS:
+    case ActionTypes.REQUEST_UPDATE_PRODUCT_SUCCESS: {
+      const idx = state.products.findIndex(product => product.id === action.payload.product._id);
+      return {
+        ...state,
+        products: idx !== -1 ? state.products.set(idx, new Product(action.payload.product)) : state.products,
+      }
+    }
+
+    case ActionTypes.REQUEST_DELETE_PRODUCT_SUCCESS: {
       const idx = state.products.findIndex(product => product.id === action.payload.id);
       return {
         ...state,
         products: idx !== -1 ? state.products.delete(idx) : state.products,
       }
+    }
 
     default:
       return state;

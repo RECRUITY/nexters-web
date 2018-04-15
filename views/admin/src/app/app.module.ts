@@ -13,8 +13,10 @@ import { AppRoutingModule } from './app-routing.modules';
 import { ReduxModule } from './redux/redux.module';
 import { DeleteProductComponent } from './components/delete-product/delete-product.component';
 import { CreateProductComponent } from './components/create-product/create-product.component';
+import { UpdateProductComponent } from './components/update-product/update-product.component';
 import { InputComponent } from './elements/input/input.component';
 import { TextareaComponent } from './elements/textarea/textarea.component';
+
 
 @NgModule({
   declarations: [
@@ -27,6 +29,7 @@ import { TextareaComponent } from './elements/textarea/textarea.component';
     CreateProductComponent,
     InputComponent,
     TextareaComponent,
+    UpdateProductComponent,
   ],
   imports: [
     BrowserModule,

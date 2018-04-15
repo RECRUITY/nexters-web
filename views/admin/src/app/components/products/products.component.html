@@ -16,7 +16,7 @@
         <td class="title">{{ product.title }}</td>
         <td class="description">{{ product.description }}</td>
         <td>
-          <app-button>Edit</app-button>
+          <app-button routerLink="/products/{{ product.id }}/edit">Edit</app-button>
         </td>
         <td>
           <app-button

@@ -1,0 +1,45 @@
+.wrapper {
+  padding: 25px;
+
+  .row {
+    display: flex;
+    height: 35px;
+
+    &.description {
+      margin-top: 15px;
+      height: 300px;
+
+      .textarea {
+        width: 800px;
+        height: 300px;
+      }
+    }
+
+    &.button-group {
+      margin: 15px 0 0 150px;
+      height: 50px;
+
+      .button {
+        float: right;
+
+        &:not(:first-child) {
+          margin-left: 10px;
+        }
+      }
+    }
+
+    .label {
+      min-width: 150px;
+      height: 35px;
+      display: flex;
+      align-items: center;
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .input {
+      width: 800px;
+      height: 35px;
+    }
+  }
+}

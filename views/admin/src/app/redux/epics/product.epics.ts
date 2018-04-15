@@ -43,6 +43,21 @@ export class ProductEpics {
       })
   )
 
+  updateProduct = (action$: any) => (
+    action$.ofType(ActionTypes.REQUEST_UPDATE_PRODUCT)
+      .mergeMap((action) => {
+        return this.httpClient.put(`http://localhost:8080/api/products/${action.payload.id}`, action.payload)
+          .map(payload => ({
+            type: ActionTypes.REQUEST_UPDATE_PRODUCT_SUCCESS,
+            payload,
+          }))
+          .catch(payload => Observable.of({
+            type: ActionTypes.REQUEST_UPDATE_PRODUCT_ERROR,
+            payload,
+          }));
+      })
+  )
+
   deleteProduct = (action$: any) => (
     action$.ofType(ActionTypes.REQUEST_DELETE_PRODUCT)
       .mergeMap((action) => {

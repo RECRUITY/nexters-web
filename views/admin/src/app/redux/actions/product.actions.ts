@@ -12,6 +12,11 @@ export class ProductActions {
     payload,
   })
 
+  updateProduct = (payload: { id: string, title: string, description: string }) => ({
+    type: ActionsTypes.REQUEST_UPDATE_PRODUCT,
+    payload,
+  })
+
   deleteProduct = (payload: { id: string }): AnyAction => ({
     type: ActionsTypes.REQUEST_DELETE_PRODUCT,
     payload,

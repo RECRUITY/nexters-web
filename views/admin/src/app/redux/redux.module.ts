@@ -47,6 +47,7 @@ export class ReduxModule {
         combineEpics(
           this.productEpics.getProducts,
           this.productEpics.createProduct,
+          this.productEpics.updateProduct,
           this.productEpics.deleteProduct,
         )
       ),
