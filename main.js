@@ -2,6 +2,7 @@
  * Module dependencies.
  */
 const mongoose = require('mongoose');
+const gridfs = require('gridfs-stream');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const compression = require('compression');
@@ -19,6 +20,15 @@ const products = require('./controllers/products');
  * Set environment
  */
 process.env.TZ = 'Asia/Seoul';
+
+/**
+ * Seg gridfs settings for file upload
+ */
+const conn = mongoose.connection;
+conn.once('open', () => {
+  console.log('open mongoose');
+  global.gfs = gridfs(conn.db, mongoose.mongo);
+});
 
 /**
  * Connect to mongodb
@@ -48,8 +58,12 @@ const app = express({
  * Express configuration.
  */
 app.use(compression());
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json({ limit: '5mb' }));
+app.use(bodyParser.urlencoded({
+  extended: true,
+  limit: '5mb',
+  parameterLimit: 100000,
+}));
 app.use(express.static(path.resolve(__dirname, 'public')));
 app.use('/admin', express.static(path.resolve(__dirname, 'views', 'admin', 'dist')));
 app.set('view engine', 'pug');
