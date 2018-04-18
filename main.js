@@ -15,6 +15,7 @@ const path = require('path');
  */
 const test = require('./controllers/test');
 const products = require('./controllers/products');
+const files = require('./controllers/files');
 
 /**
  * Set environment
@@ -77,6 +78,7 @@ app.use('/api', (() => {
 
   router.use('/test', test);
   router.use('/products', products);
+  router.use('/files', files);
 
   return router;
 })());
