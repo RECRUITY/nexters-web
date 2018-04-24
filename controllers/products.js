@@ -20,6 +20,7 @@ const router = express.Router();
 router.get('/', (req, res, next) => {
   Product
     .find()
+    .populate('file')
     .exec((err, products) => {
       if (err) {
         return next(err);
@@ -54,17 +55,19 @@ router.post('/', (req, res, next) => {
  */
 router.put('/:id', (req, res, next) => {
   const { title, description } = req.body;
-  Product.findByIdAndUpdate(
-    req.params.id,
-    { title, description },
-    { new: true },
-    (err, product) => {
+  Product
+    .findByIdAndUpdate(
+      req.params.id,
+      { title, description },
+      { new: true },
+    )
+    .populate('file')
+    .exec((err, product) => {
       if (err) {
         return next(err);
       }
       return res.status(HttpStatus.OK).json({ product });
-    },
-  );
+    });
 });
 
 /**
@@ -137,7 +140,7 @@ router.post(
                 return next(productSaveError);
               }
 
-              return res.status(HttpStatus.OK).json({ product: savedProduct });
+              return res.status(HttpStatus.OK).json({ product: { ...savedProduct.toObject(), file: savedFile } });
             });
 
             return null;
