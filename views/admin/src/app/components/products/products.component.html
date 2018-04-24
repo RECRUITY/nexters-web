@@ -6,6 +6,7 @@
         <th>No.</th>
         <th>Title</th>
         <th>Description</th>
+        <th>Thumb</th>
         <th></th>
         <th></th>
       </tr>
@@ -15,6 +16,15 @@
         <td>{{ idx + 1 }}</td>
         <td class="title">{{ product.title }}</td>
         <td class="description">{{ product.description }}</td>
+        <td class="image">
+          <img
+            *ngIf="product.hasImage() else noImage"
+            src="http://localhost:8080/api/files/{{product.file.thumb.fileId}}"
+          />
+          <ng-template #noImage>
+            X
+          </ng-template>
+        </td>
         <td>
           <app-button routerLink="/products/{{ product.id }}/edit">Edit</app-button>
         </td>
