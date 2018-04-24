@@ -21,4 +21,9 @@ export class ProductActions {
     type: ActionsTypes.REQUEST_DELETE_PRODUCT,
     payload,
   })
+
+  uploadImage = (payload: { id: string, image }) => ({
+    type: ActionsTypes.REQUEST_UPLOAD_PRODUCT_IMAGE,
+    payload,
+  })
 }

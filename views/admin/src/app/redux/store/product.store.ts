@@ -26,7 +26,8 @@ export const productReducer = (state: IProductState = productInitState, action: 
         products: state.products.push(new Product(action.payload.product)),
       }
 
-    case ActionTypes.REQUEST_UPDATE_PRODUCT_SUCCESS: {
+    case ActionTypes.REQUEST_UPDATE_PRODUCT_SUCCESS:
+    case ActionTypes.REQUEST_UPLOAD_PRODUCT_IMAGE_SUCCESS: {
       const idx = state.products.findIndex(product => product.id === action.payload.product._id);
       return {
         ...state,

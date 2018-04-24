@@ -7,6 +7,7 @@ import { IRootState } from '../../redux/redux.module';
 
 import { ProductActions } from '../../redux/actions/product.actions';
 import { Product } from '../../models/product.model';
+import { File } from '../../models/file.model';
 
 @Component({
   selector: 'app-update-product',
@@ -18,6 +19,8 @@ export class UpdateProductComponent implements OnInit, OnDestroy {
   subscriber;
   title = '';
   description = '';
+  file: File;
+  selectedFile;
 
   constructor(
     private router: Router,
@@ -31,6 +34,7 @@ export class UpdateProductComponent implements OnInit, OnDestroy {
       const product = products.find(p => p.id === this.activatedRouter.snapshot.params.id);
       this.title = product.title;
       this.description = product.description;
+      this.file = product.file;
     });
   }
 
@@ -46,5 +50,21 @@ export class UpdateProductComponent implements OnInit, OnDestroy {
     }
     this.ngRedux.dispatch(this.productActions.updateProduct(payload));
     this.router.navigate(['/products']);
+  }
+
+  handleChangeImage(event) {
+    const file = event.srcElement.files[0];
+    if (file) {
+      this.selectedFile = file;
+    }
+  }
+
+  handleUploadImage(event) {
+    const payload = {
+      id: this.activatedRouter.snapshot.params.id,
+      image: this.selectedFile,
+    }
+    this.ngRedux.dispatch(this.productActions.uploadImage(payload));
+    this.selectedFile = null;
   }
 }

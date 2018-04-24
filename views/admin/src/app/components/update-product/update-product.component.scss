@@ -28,6 +28,10 @@
       }
     }
 
+    &.image {
+      height: 150px;
+    }
+
     .label {
       min-width: 150px;
       height: 35px;
@@ -40,6 +44,22 @@
     .input {
       width: 800px;
       height: 35px;
+    }
+
+    .preview {
+      padding-top: 8px;
+      max-height: 300px;
+      display: flex;
+      flex-direction: column;
+
+      img {
+        width: 100px;
+        height: 100px;
+      }
+
+      input {
+        margin-top: 10px;
+      }
     }
   }
 }

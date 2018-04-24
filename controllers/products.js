@@ -140,7 +140,12 @@ router.post(
                 return next(productSaveError);
               }
 
-              return res.status(HttpStatus.OK).json({ product: { ...savedProduct.toObject(), file: savedFile } });
+              return res.status(HttpStatus.OK).json({
+                product: {
+                  ...savedProduct.toObject(),
+                  file: savedFile,
+                },
+              });
             });
 
             return null;
