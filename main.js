@@ -15,6 +15,7 @@ const path = require('path');
  */
 const test = require('./controllers/test');
 const products = require('./controllers/products');
+const groups = require('./controllers/groups');
 const files = require('./controllers/files');
 
 /**
@@ -78,6 +79,7 @@ app.use('/api', (() => {
 
   router.use('/test', test);
   router.use('/products', products);
+  router.use('/groups', groups);
   router.use('/files', files);
 
   return router;
