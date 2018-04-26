@@ -40,5 +40,22 @@ router.post('/', (req, res, next) => {
   });
 });
 
+/**
+ * @api {get} /api/groups GET
+ * @apiGroup Group
+ * @apiName get groups
+ * @apiDescription 존재하는 모든 Group을 반환한다.
+ */
+router.get('/nexters', (req, res, next) => {
+  Group
+    .findOne({ name: 'nexters' })
+    .populate('file')
+    .exec((err, group) => {
+      if (err) {
+        return next(err);
+      }
+      return res.status(HttpStatus.OK).json({ group });
+    });
+});
 
 module.exports = router;

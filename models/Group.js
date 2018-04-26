@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const GroupScheme = new mongoose.Schema({
   name: {
     type: String,
+    unique: true,
     required: true,
   },
   file: {
