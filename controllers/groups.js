@@ -23,4 +23,22 @@ router.get('/', (req, res, next) => {
     });
 });
 
+/**
+ * @api {post} /api/groups POST
+ * @apiGroup Group
+ * @apiName Create New Group
+ * @apiDescription 새로운 Group을 추가한다.
+ */
+router.post('/', (req, res, next) => {
+  (new Group({
+    name: req.body.name,
+  })).save((err, group) => {
+    if (err) {
+      return next(err);
+    }
+    return res.status(HttpStatus.OK).json({ group });
+  });
+});
+
+
 module.exports = router;
