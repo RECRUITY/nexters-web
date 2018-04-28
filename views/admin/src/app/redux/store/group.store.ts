@@ -18,7 +18,7 @@ export const groupReducer = (state: IGroupState = groupInitState, action: AnyAct
       const idx = state.groups.findIndex(group => action.payload.group._id);
       return {
         ...state,
-        groups: idx === -1 ? state.groups.push(new Group(action.payload.group)) : state.groups.set(idx, new Group(action.payload.gropu)),
+        groups: idx === -1 ? state.groups.push(new Group(action.payload.group)) : state.groups.set(idx, new Group(action.payload.group)),
       }
     }
 

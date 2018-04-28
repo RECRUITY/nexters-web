@@ -1,3 +1,8 @@
-<p>
-  nexters works!
-</p>
+<ng-container *ngIf="nexters$ | async as nexters">
+  <div *ngIf="nexters.id; else emptyNextersBlock">
+      {{ nexters.name }}
+  </div>
+  <ng-template #emptyNextersBlock>
+    <div>넥스터즈 그룹이 없습니다. 새롭게 만들어주세요.</div>
+  </ng-template>
+</ng-container>
