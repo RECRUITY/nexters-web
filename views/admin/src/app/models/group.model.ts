@@ -1,6 +1,6 @@
 import { File, IFileResponse } from './file.model';
 
-export class Product {
+export class Group {
   readonly id: string = '';
   readonly name: string = '';
   readonly file: File = new File();
