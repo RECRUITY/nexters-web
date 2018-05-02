@@ -120,7 +120,7 @@ router.post(
               }
 
               return res.status(HttpStatus.OK).json({
-                product: {
+                group: {
                   ...savedGroup.toObject(),
                   file: savedFile,
                 },

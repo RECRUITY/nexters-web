@@ -16,6 +16,8 @@ import groupSelectors from '../../redux/selectors/group.selector';
 export class NextersComponent implements OnInit {
   @select(groupSelectors.getNexters) readonly nexters$: Observable<Group>;
 
+  selectedFile = null;
+
   constructor(
     private ngRedux: NgRedux<IRootState>,
     private groupActions: GroupActions,
@@ -23,5 +25,21 @@ export class NextersComponent implements OnInit {
 
   ngOnInit() {
     this.ngRedux.dispatch(this.groupActions.getNexters());
+  }
+
+  handleChangeImage(event) {
+    const file = event.srcElement.files[0];
+    if (file) {
+      this.selectedFile = file;
+    }
+  }
+
+  handleUploadImage(id) {
+    const payload = {
+      id,
+      image: this.selectedFile,
+    }
+    this.ngRedux.dispatch(this.groupActions.uploadImage(payload));
+    this.selectedFile = null;
   }
 }

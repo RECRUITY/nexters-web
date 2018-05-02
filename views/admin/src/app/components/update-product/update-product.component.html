@@ -13,54 +13,55 @@
       <app-textarea class="textarea" [(ngModel)]="description"></app-textarea>
     </div>
     <div class="row button-group">
-        <app-button
-          class="button"
-          btnType="primary"
-          (click)="handleClickEdit()"
-        >
-          Edit
-        </app-button>
-        <app-button
-          class="button"
-          btnType="light"
-          routerLink="/products"
-        >
-          Cancel
-        </app-button>
+      <app-button
+        class="button"
+        btnType="primary"
+        (click)="handleClickEdit()"
+      >
+        Edit
+      </app-button>
+      <app-button
+        class="button"
+        btnType="light"
+        routerLink="/products"
+      >
+        Cancel
+      </app-button>
+  </div>
+  <hr />
+  <div class="row image">
+    <div class="label">
+      Thumbnail
     </div>
-    <hr />
-    <div class="row image">
-      <div class="label">
-        Thumbnail
-      </div>
-      <div class="preview">
-        <img
-          *ngIf="file?.id && file?.image else noImage"
-          src="http://localhost:8080/api/files/{{file.thumb.fileId}}"
-        />
-        <ng-template #noImage>
-          <span>등록된 이미지가 없습니다. 이미지를 등록해주세요.</span>
-        </ng-template>
-        <input
-          type="file"
-          accept="image/*"
-          (change)="handleChangeImage($event)"
-        />
-      </div>
-    </div>
-    <div class="row button-group">
-        <app-button
-          class="button"
-          btnType="primary"
-          (click)="handleUploadImage()"
-        >
-          Upload
-        </app-button>
-        <app-button
-          class="button"
-          btnType="light"
-        >
-          Cancel
-        </app-button>
+    <div class="preview">
+      <img
+        *ngIf="file?.id && file?.image else noImage"
+        src="http://localhost:8080/api/files/{{file.thumb.fileId}}"
+      />
+      <ng-template #noImage>
+        <span>등록된 이미지가 없습니다. 이미지를 등록해주세요.</span>
+      </ng-template>
+      <input
+        type="file"
+        accept="image/*"
+        (change)="handleChangeImage($event)"
+      />
     </div>
   </div>
+  <div class="row button-group">
+      <app-button
+        class="button"
+        btnType="primary"
+        (click)="handleUploadImage()"
+      >
+        Upload
+      </app-button>
+      <app-button
+        class="button"
+        btnType="light"
+      >
+        Cancel
+      </app-button>
+  </div>
+</div>
+

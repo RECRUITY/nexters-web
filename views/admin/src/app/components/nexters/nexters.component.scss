@@ -1,0 +1,55 @@
+.wrapper {
+  padding: 25px;
+
+  .row {
+    display: flex;
+    height: 35px;
+
+    &.button-group {
+      margin: 15px 0 0 150px;
+      height: 50px;
+
+      .button {
+        float: right;
+
+        &:not(:first-child) {
+          margin-left: 10px;
+        }
+      }
+    }
+
+    &.image {
+      height: auto;
+    }
+
+    .label {
+      min-width: 150px;
+      height: 35px;
+      display: flex;
+      align-items: center;
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .input {
+      width: 800px;
+      height: 35px;
+    }
+
+    .preview {
+      padding-top: 8px;
+      max-height: auto;
+      display: flex;
+      flex-direction: column;
+
+      img {
+        max-width: 400px;
+        height: auto;
+      }
+
+      input {
+        margin-top: 10px;
+      }
+    }
+  }
+}

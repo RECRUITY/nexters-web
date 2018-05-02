@@ -14,7 +14,8 @@ export const groupInitState: IGroupState = {
 
 export const groupReducer = (state: IGroupState = groupInitState, action: AnyAction): IGroupState => {
   switch (action.type) {
-    case ActionTypes.REQUEST_GET_NEXTERS_SUCCESS: {
+    case ActionTypes.REQUEST_GET_NEXTERS_SUCCESS:
+    case ActionTypes.REQUEST_UPLOAD_NEXTERS_IMAGE_SUCCESS: {
       const idx = state.groups.findIndex(group => action.payload.group._id);
       return {
         ...state,

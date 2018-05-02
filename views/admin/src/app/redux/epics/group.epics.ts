@@ -27,4 +27,22 @@ export class GroupEpics {
           }));
       })
   )
+
+  uploadGroupImage = (action$: any) => (
+    action$.ofType(ActionTypes.REQUEST_UPLOAD_NEXTERS_IMAGE)
+      .mergeMap((action) => {
+        const id = action.payload.id;
+        const formData = new FormData();
+        formData.append('image', action.payload.image);
+        return this.httpClient.post(`http://localhost:8080/api/groups/${id}/images`, formData)
+          .map(payload => ({
+            type: ActionTypes.REQUEST_UPLOAD_NEXTERS_IMAGE_SUCCESS,
+            payload,
+          }))
+          .catch(payload => Observable.of({
+            type: ActionTypes.REQUEST_UPLOAD_NEXTERS_IMAGE_ERROR,
+            payload,
+          }));
+      })
+  )
 }

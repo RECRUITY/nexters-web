@@ -1,9 +1,14 @@
 import { AnyAction } from 'redux';
 
-import ActionsTypes from '../../constants/ActionTypes';
+import ActionTypes from '../../constants/ActionTypes';
 
 export class GroupActions {
   getNexters = (): AnyAction => ({
-    type: ActionsTypes.REQUEST_GET_NEXTERS,
+    type: ActionTypes.REQUEST_GET_NEXTERS,
+  })
+
+  uploadImage = (payload: { id: string, image }) => ({
+    type: ActionTypes.REQUEST_UPLOAD_NEXTERS_IMAGE,
+    payload,
   })
 }

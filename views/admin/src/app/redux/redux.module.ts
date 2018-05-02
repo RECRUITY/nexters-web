@@ -59,8 +59,9 @@ export class ReduxModule {
           this.productEpics.createProduct,
           this.productEpics.updateProduct,
           this.productEpics.deleteProduct,
-          this.productEpics.uploadImageProduct,
+          this.productEpics.uploadProductImage,
           this.groupEpics.getNextres,
+          this.groupEpics.uploadGroupImage,
         )
       ),
     ];

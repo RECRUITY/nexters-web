@@ -74,7 +74,7 @@ export class ProductEpics {
       })
   )
 
-  uploadImageProduct = (action$: any) => (
+  uploadProductImage = (action$: any) => (
     action$.ofType(ActionTypes.REQUEST_UPLOAD_PRODUCT_IMAGE)
       .mergeMap((action) => {
         const id = action.payload.id;
