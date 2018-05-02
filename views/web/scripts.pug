@@ -1,0 +1,12 @@
+script.
+  $(document).ready(function() {
+
+      // nexters group을 받아오는 부분
+    $.get('http://localhost:8080/api/groups/nexters', function(response) {
+      const nexters = response.group;
+      const backgroundImageUrl = 'url(http://localhost:8080/api/files/' + nexters.file.fileId + ')';
+
+      // nexters main image를 저장하는 부분
+      $('#nexters-main-image').css('background-image', backgroundImageUrl);
+    })
+  });
